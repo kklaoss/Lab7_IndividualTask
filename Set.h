@@ -7,9 +7,9 @@ template <typename T>
 class Set
 {
 private:
-	Vect<T> elements; // Хранилище элементов (всегда отсортировано)
+	Vect<T> elements; // Хранилище элементов
 
-	// Бинарный поиск элемента (O(log n))
+	// Бинарный поиск элемента
 	bool contains(const T& value) const
 	{
 		size_t left = 0;
@@ -33,7 +33,7 @@ public:
 			throw std::invalid_argument("Element already exists");
 		}
 
-		// Линейный поиск позиции для вставки (можно оптимизировать до бинарного)
+		// Линейный поиск позиции для вставки
 		size_t pos = elements.getSize();
 		for (size_t i = 0; i < elements.getSize(); ++i)
 		{
@@ -53,7 +53,7 @@ public:
 		elements[pos] = value; // Записываем значение в правильную позицию
 	}
 
-	// Удаление элемента (O(n) из-за сдвига)
+	// Удаление элемента
 	void remove(const T& value)
 	{
 		for (size_t i = 0; i < elements.getSize(); ++i)
@@ -72,7 +72,7 @@ public:
 		throw std::invalid_argument("Element not found");
 	}
 
-	// Проверка наличия элемента (O(log n))
+	// Проверка наличия элемента
 	bool has(const T& value) const
 	{
 		return contains(value);
